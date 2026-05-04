@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="style1.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 html {
     scroll-behavior: smooth;
@@ -275,34 +276,49 @@ html {
 </section>
 
 </section>
-<!-- Contact Section -->
+<!-- CONTACT SECTION -->
 <section id="contact">
+
     <div id="contact-info">
         <h2 id="contact-title">Contact <span id="highlight-text">Me</span></h2>
-        <p id="contact-desc">Let's build something great together. Have a project in mind or just want to chat about the latest in web tech? I'm always open to discussing new opportunities, creative ideas, or ways to help your vision come to life. Drop me a message and I'll get back to you as soon as I can!</p>
-        
+
+        <p id="contact-desc">
+            Let's build something great together. Send me a message below.
+        </p>
+
         <div id="contact-details">
-            <div class="contact-item" id="whatsapp-item">
+            <div class="contact-item">
                 <i class="fab fa-whatsapp"></i>
                 <span>09127035347</span>
             </div>
-            <div class="contact-item" id="address-item">
+
+            <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Lot 2 Block 22 Punta Bonbon, Cagayan De Oro City</span>
+                <span>Cagayan de Oro City</span>
             </div>
         </div>
     </div>
 
+    <!-- CONTACT FORM -->
     <div id="contact-form-wrapper">
-        <h2 id="form-title">Send <span id="highlight-text2">Email</span></h2>
+        <h2>Send <span>Email</span></h2>
+
         <form id="contact-form">
-            <input type="text" id="name-input" placeholder="Your name">
-            <input type="email" id="email-input" placeholder="Your email">
-            <textarea id="message-input" rows="5" placeholder="whats up bro"></textarea>
+
+            <input type="text" id="name-input" placeholder="Your name" required>
+
+            <input type="email" id="email-input" placeholder="Your email" required>
+
+            <textarea id="message-input" rows="5" placeholder="What's up bro" required></textarea>
+
             <button type="submit" id="submit-btn">Send Message</button>
+
         </form>
     </div>
+
 </section>
+
+
 <!-- FOOTER -->
 <footer class="footer">
     <p>© 2026 Einan Andrie V. Mamenting</p>
@@ -320,6 +336,58 @@ for (let i = 0; i < 50; i++) {
     particles.appendChild(span);
 }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // initialize EmailJS
+    emailjs.init("5w2zW-Cu5umCfEcXB"); // your PUBLIC KEY
+
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.send("service_ir5ur79", "template_xzwu0ti", {
+            name: document.getElementById("name-input").value,
+            email: document.getElementById("email-input").value,
+            message: document.getElementById("message-input").value
+        })
+        .then(function() {
+            alert("Message sent successfully!");
+            form.reset();
+        })
+        .catch(function(error) {
+            console.log(error);
+            alert("Failed to send message.");
+        });
+
+    });
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
