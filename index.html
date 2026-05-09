@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>MY PORTFOLIO</title>
 <link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="nav-styles.css"> 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-<link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 </style>
-
 </head>
 <body>
 
@@ -25,6 +21,7 @@ html {
         <li><a href="#projects">Projects</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
+
     </ul>
 </nav>
 
@@ -45,7 +42,8 @@ html {
 <!-- HERO -->
 <section class="hero" id="home">
     <div class="hero-left">
-        <h1>Hi, I'm <span>Einan Andrie V. Mamenting</span></h1>
+
+<h1>Hi, I'm <span class="typewriter" data-text="Einan Andrie V. Mamenting">Einan Andrie V. Mamenting</span></h1>
         <h2>Aspiring UI/UX Designer & Front-End Developer</h2>
         <p>Hi, I’m Einan, a student who enjoys creating simple 
             and user-friendly websites. I focus on designing clean
@@ -64,7 +62,7 @@ html {
     <div class="hero-right">
         <div class="profile-card">
             <div class="profile-image">
-                <img src="profile.jpg">
+                <img src="profile2.jpg">
             </div>
             <div class="profile-status">
                 <div class="status-left">
@@ -96,10 +94,21 @@ html {
     </div>
 </section>
 <div class="social-icons">
-    <a href="#"><i class="fa-brands fa-github"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://github.com/andrievillame504-pixel" target="_blank">
+        <i class="fa-brands fa-github"></i>
+    </a>
+
+    <a href="https://www.instagram.com/driemnqz/" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.youtube.com/@AndrieVillame" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+
+    <a href="https://www.tiktok.com/@starboy_drie?_r=1&_t=ZS-96CoYgSnA1s" target="_blank">
+        <i class="fa-brands fa-tiktok"></i>
+    </a>
 </div>
 <section class="about-section" id="about">
 
@@ -214,6 +223,8 @@ html {
             <img src="project3.jpg" alt="Project 3">
         </div>
     </div>
+
+    </section>
 <section id="services">
     <h2>My Services</h2>
 
@@ -287,16 +298,20 @@ html {
         </p>
 
         <div id="contact-details">
-            <div class="contact-item">
-                <i class="fab fa-whatsapp"></i>
-                <span>09127035347</span>
-            </div>
+    <div class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/639127035347" target="_blank">
+            <span>09127035347</span>
+        </a>
+    </div>
 
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Cagayan de Oro City</span>
-            </div>
-        </div>
+    <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://maps.app.goo.gl/xALNzyS6BMY9BADi7" target="_blank">
+            <span>Cagayan de Oro City</span>
+        </a>
+    </div>
+</div>
     </div>
 
     <!-- CONTACT FORM -->
@@ -324,6 +339,34 @@ html {
     <p>© 2026 Einan Andrie V. Mamenting</p>
 </footer>
 
+<!-- SCRIPTS -->
+<script src="script.js"></script> <!-- NEW EXTERNAL JS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("5w2zW-Cu5umCfEcXB");
+    
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        emailjs.send("service_ir5ur79", "template_xzwu0ti", {
+            name: document.getElementById("name-input").value,
+            email: document.getElementById("email-input").value,
+            message: document.getElementById("message-input").value
+        })
+        .then(function() {
+            alert("Message sent successfully!");
+            form.reset();
+        })
+        .catch(function(error) {
+            console.log(error);
+            alert("Failed to send message.");
+        });
+    });
+});
+</script>
+</body>
 <!-- PARTICLES SCRIPT -->
 <script>
 const particles = document.querySelector('.particles');
@@ -386,8 +429,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
 </body>
 </html>
+
+
+<!-- ABOUT -->
+<section class="about-section reveal fade-up" id="about">
+
+<!-- PROJECTS -->
+<section class="projects-section reveal fade-up" id="projects">
+
+<!-- SERVICES -->
+<section id="services" class="reveal fade-up">
+
+<!-- CONTACT -->
+<section id="contact" class="reveal fade-up">
